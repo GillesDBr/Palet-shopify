@@ -28,5 +28,7 @@ app.post('/webhook', verifyHmac, (req, res) => {
     });
 });
 
+app.get('/health', (req, res) => res.send('👍 OK'));
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
