@@ -1,0 +1,776 @@
+{
+  "id": 6636357419350,
+  "admin_graphql_api_id": "gid://shopify/Order/6636357419350",
+  "app_id": 1354745,
+  "browser_ip": "2a02:a476:7199:0:c485:a099:d132:5376",
+  "buyer_accepts_marketing": true,
+  "cancel_reason": null,
+  "cancelled_at": null,
+  "cart_token": null,
+  "checkout_id": 46691270426966,
+  "checkout_token": "9eb225a4dd1ddff1258886a5c0c7eb55",
+  "client_details": {
+    "accept_language": "en-US",
+    "browser_height": null,
+    "browser_ip": "2a02:a476:7199:0:c485:a099:d132:5376",
+    "browser_width": null,
+    "session_hash": null,
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+  },
+  "closed_at": null,
+  "confirmation_number": "5WXJYPVRY",
+  "confirmed": true,
+  "contact_email": "gilles@palet.company",
+  "created_at": "2025-05-21T10:40:51+02:00",
+  "currency": "EUR",
+  "current_shipping_price_set": {
+    "shop_money": {
+      "amount": "155.90",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "155.90",
+      "currency_code": "EUR"
+    }
+  },
+  "current_subtotal_price": "770.00",
+  "current_subtotal_price_set": {
+    "shop_money": {
+      "amount": "770.00",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "770.00",
+      "currency_code": "EUR"
+    }
+  },
+  "current_total_additional_fees_set": null,
+  "current_total_discounts": "0.00",
+  "current_total_discounts_set": {
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "EUR"
+    }
+  },
+  "current_total_duties_set": null,
+  "current_total_price": "1120.34",
+  "current_total_price_set": {
+    "shop_money": {
+      "amount": "1120.34",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "1120.34",
+      "currency_code": "EUR"
+    }
+  },
+  "current_total_tax": "194.44",
+  "current_total_tax_set": {
+    "shop_money": {
+      "amount": "194.44",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "194.44",
+      "currency_code": "EUR"
+    }
+  },
+  "customer_locale": "en-US",
+  "device_id": null,
+  "discount_codes": [],
+  "duties_included": false,
+  "email": "gilles@palet.company",
+  "estimated_taxes": false,
+  "financial_status": "pending",
+  "fulfillment_status": null,
+  "landing_site": "/76717523286/invoices/41309a0add0b55382895f28a062f69cb",
+  "landing_site_ref": null,
+  "location_id": 84381958486,
+  "merchant_business_entity_id": "MTc2NzE3NTIzMjg2",
+  "merchant_of_record_app_id": null,
+  "name": "#1980",
+  "note": null,
+  "note_attributes": [],
+  "number": 980,
+  "order_number": 1980,
+  "order_status_url": "https://checkout.palet.shop/76717523286/orders/ba48af5412044601021241b611a8962c/authenticate?key=a9fbc9426a7945d7bc2d003825aba13f",
+  "original_total_additional_fees_set": null,
+  "original_total_duties_set": null,
+  "payment_gateway_names": [
+    "shopify_payments"
+  ],
+  "phone": null,
+  "po_number": null,
+  "presentment_currency": "EUR",
+  "processed_at": "2025-05-21T10:40:51+02:00",
+  "reference": null,
+  "referring_site": "https://palet.shop/",
+  "source_identifier": null,
+  "source_name": "shopify_draft_order",
+  "source_url": null,
+  "subtotal_price": "770.00",
+  "subtotal_price_set": {
+    "shop_money": {
+      "amount": "770.00",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "770.00",
+      "currency_code": "EUR"
+    }
+  },
+  "tags": "",
+  "tax_exempt": false,
+  "tax_lines": [
+    {
+      "price": "194.44",
+      "rate": 0.21,
+      "title": "NL btw",
+      "price_set": {
+        "shop_money": {
+          "amount": "194.44",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "194.44",
+          "currency_code": "EUR"
+        }
+      },
+      "channel_liable": false
+    }
+  ],
+  "taxes_included": false,
+  "test": false,
+  "token": "ba48af5412044601021241b611a8962c",
+  "total_cash_rounding_payment_adjustment_set": {
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "EUR"
+    }
+  },
+  "total_cash_rounding_refund_adjustment_set": {
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "EUR"
+    }
+  },
+  "total_discounts": "0.00",
+  "total_discounts_set": {
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "EUR"
+    }
+  },
+  "total_line_items_price": "770.00",
+  "total_line_items_price_set": {
+    "shop_money": {
+      "amount": "770.00",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "770.00",
+      "currency_code": "EUR"
+    }
+  },
+  "total_outstanding": "1120.34",
+  "total_price": "1120.34",
+  "total_price_set": {
+    "shop_money": {
+      "amount": "1120.34",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "1120.34",
+      "currency_code": "EUR"
+    }
+  },
+  "total_shipping_price_set": {
+    "shop_money": {
+      "amount": "155.90",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "155.90",
+      "currency_code": "EUR"
+    }
+  },
+  "total_tax": "194.44",
+  "total_tax_set": {
+    "shop_money": {
+      "amount": "194.44",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "194.44",
+      "currency_code": "EUR"
+    }
+  },
+  "total_tip_received": "0.00",
+  "total_weight": 34500,
+  "updated_at": "2025-05-21T10:40:54+02:00",
+  "user_id": null,
+  "billing_address": {
+    "first_name": "gilles",
+    "address1": "Poeldonkweg 5",
+    "phone": "+31646567549",
+    "city": "'S-HERTOGENBOSCH",
+    "zip": "5216 JX",
+    "province": null,
+    "country": "Netherlands",
+    "last_name": "Brock",
+    "address2": null,
+    "company": "Palet BV",
+    "latitude": 51.6841321,
+    "longitude": 5.3412331,
+    "name": "gilles Brock",
+    "country_code": "NL",
+    "province_code": null
+  },
+  "customer": {
+    "id": 8828442313046,
+    "email": "gilles@palet.company",
+    "created_at": "2025-05-12T22:01:33+02:00",
+    "updated_at": "2025-05-21T10:40:53+02:00",
+    "first_name": "gilles",
+    "last_name": "Brock",
+    "state": "disabled",
+    "note": null,
+    "verified_email": true,
+    "multipass_identifier": null,
+    "tax_exempt": false,
+    "phone": null,
+    "currency": "EUR",
+    "tax_exemptions": [],
+    "admin_graphql_api_id": "gid://shopify/Customer/8828442313046",
+    "default_address": {
+      "id": 11107785113942,
+      "customer_id": 8828442313046,
+      "first_name": "gilles",
+      "last_name": "Brock",
+      "company": "Palet BV",
+      "address1": "Poeldonkweg 5",
+      "address2": null,
+      "city": "'S-HERTOGENBOSCH",
+      "province": null,
+      "country": "Netherlands",
+      "zip": "5216 JX",
+      "phone": "+31646567549",
+      "name": "gilles Brock",
+      "province_code": null,
+      "country_code": "NL",
+      "country_name": "Netherlands",
+      "default": true
+    }
+  },
+  "discount_applications": [],
+  "fulfillments": [],
+  "line_items": [
+    {
+      "id": 16774106841430,
+      "admin_graphql_api_id": "gid://shopify/LineItem/16774106841430",
+      "attributed_staffs": [],
+      "current_quantity": 2,
+      "fulfillable_quantity": 2,
+      "fulfillment_service": "palet",
+      "fulfillment_status": null,
+      "gift_card": false,
+      "grams": 2500,
+      "name": "Custom tile sample [4 tiles]",
+      "price": "50.00",
+      "price_set": {
+        "shop_money": {
+          "amount": "50.00",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "50.00",
+          "currency_code": "EUR"
+        }
+      },
+      "product_exists": true,
+      "product_id": 8557908525398,
+      "properties": [
+        {
+          "name": "Design",
+          "value": "stripe full"
+        },
+        {
+          "name": "Colors",
+          "value": "379 + 343"
+        },
+        {
+          "name": "Producturl",
+          "value": "https://palet.shop/id/691"
+        },
+        {
+          "name": "Image",
+          "value": "https://palet.shop/id/692"
+        }
+      ],
+      "quantity": 2,
+      "requires_shipping": true,
+      "sales_line_item_group_id": null,
+      "sku": "200",
+      "taxable": true,
+      "title": "Custom tile sample [4 tiles]",
+      "total_discount": "0.00",
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "EUR"
+        }
+      },
+      "variant_id": 47092549681494,
+      "variant_inventory_management": null,
+      "variant_title": null,
+      "vendor": "Palet",
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "21.00",
+          "price_set": {
+            "shop_money": {
+              "amount": "21.00",
+              "currency_code": "EUR"
+            },
+            "presentment_money": {
+              "amount": "21.00",
+              "currency_code": "EUR"
+            }
+          },
+          "rate": 0.21,
+          "title": "NL btw"
+        }
+      ],
+      "duties": [],
+      "discount_allocations": []
+    },
+    {
+      "id": 16774106874198,
+      "admin_graphql_api_id": "gid://shopify/LineItem/16774106874198",
+      "attributed_staffs": [],
+      "current_quantity": 1,
+      "fulfillable_quantity": 1,
+      "fulfillment_service": "palet",
+      "fulfillment_status": null,
+      "gift_card": false,
+      "grams": 2500,
+      "name": "Custom tile sample [4 tiles]",
+      "price": "50.00",
+      "price_set": {
+        "shop_money": {
+          "amount": "50.00",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "50.00",
+          "currency_code": "EUR"
+        }
+      },
+      "product_exists": true,
+      "product_id": 8557908525398,
+      "properties": [
+        {
+          "name": "Design",
+          "value": "gradient thirds dominant"
+        },
+        {
+          "name": "Colors",
+          "value": "383 + 250"
+        },
+        {
+          "name": "Producturl",
+          "value": "https://palet.shop/id/843"
+        },
+        {
+          "name": "Image",
+          "value": "https://palet.shop/id/844"
+        }
+      ],
+      "quantity": 1,
+      "requires_shipping": true,
+      "sales_line_item_group_id": null,
+      "sku": "200",
+      "taxable": true,
+      "title": "Custom tile sample [4 tiles]",
+      "total_discount": "0.00",
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "EUR"
+        }
+      },
+      "variant_id": 47092549681494,
+      "variant_inventory_management": null,
+      "variant_title": null,
+      "vendor": "Palet",
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "10.50",
+          "price_set": {
+            "shop_money": {
+              "amount": "10.50",
+              "currency_code": "EUR"
+            },
+            "presentment_money": {
+              "amount": "10.50",
+              "currency_code": "EUR"
+            }
+          },
+          "rate": 0.21,
+          "title": "NL btw"
+        }
+      ],
+      "duties": [],
+      "discount_allocations": []
+    },
+    {
+      "id": 16774106906966,
+      "admin_graphql_api_id": "gid://shopify/LineItem/16774106906966",
+      "attributed_staffs": [],
+      "current_quantity": 1,
+      "fulfillable_quantity": 1,
+      "fulfillment_service": "palet",
+      "fulfillment_status": null,
+      "gift_card": false,
+      "grams": 11000,
+      "name": "Square meter of ceramic tiles",
+      "price": "275.00",
+      "price_set": {
+        "shop_money": {
+          "amount": "275.00",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "275.00",
+          "currency_code": "EUR"
+        }
+      },
+      "product_exists": true,
+      "product_id": 8709490311510,
+      "properties": [
+        {
+          "name": "Design",
+          "value": "camo"
+        },
+        {
+          "name": "Colors",
+          "value": "309 + 395"
+        },
+        {
+          "name": "Producturl",
+          "value": "https://palet.shop/id/845"
+        },
+        {
+          "name": "Image",
+          "value": "https://palet.shop/id/846"
+        }
+      ],
+      "quantity": 1,
+      "requires_shipping": true,
+      "sales_line_item_group_id": null,
+      "sku": "300",
+      "taxable": true,
+      "title": "Square meter of ceramic tiles",
+      "total_discount": "0.00",
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "EUR"
+        }
+      },
+      "variant_id": 47589380850006,
+      "variant_inventory_management": null,
+      "variant_title": null,
+      "vendor": "Palet",
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "57.75",
+          "price_set": {
+            "shop_money": {
+              "amount": "57.75",
+              "currency_code": "EUR"
+            },
+            "presentment_money": {
+              "amount": "57.75",
+              "currency_code": "EUR"
+            }
+          },
+          "rate": 0.21,
+          "title": "NL btw"
+        }
+      ],
+      "duties": [],
+      "discount_allocations": []
+    },
+    {
+      "id": 16774106939734,
+      "admin_graphql_api_id": "gid://shopify/LineItem/16774106939734",
+      "attributed_staffs": [],
+      "current_quantity": 2,
+      "fulfillable_quantity": 2,
+      "fulfillment_service": "palet",
+      "fulfillment_status": null,
+      "gift_card": false,
+      "grams": 2500,
+      "name": "Curated tile sample [9 tiles]",
+      "price": "35.00",
+      "price_set": {
+        "shop_money": {
+          "amount": "35.00",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "35.00",
+          "currency_code": "EUR"
+        }
+      },
+      "product_exists": true,
+      "product_id": 8709488738646,
+      "properties": [
+        {
+          "name": "Image",
+          "value": "https://palet.shop/id/372"
+        }
+      ],
+      "quantity": 2,
+      "requires_shipping": true,
+      "sales_line_item_group_id": null,
+      "sku": "100",
+      "taxable": true,
+      "title": "Curated tile sample [9 tiles]",
+      "total_discount": "0.00",
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "EUR"
+        }
+      },
+      "variant_id": 47589378130262,
+      "variant_inventory_management": null,
+      "variant_title": null,
+      "vendor": "Palet",
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "14.70",
+          "price_set": {
+            "shop_money": {
+              "amount": "14.70",
+              "currency_code": "EUR"
+            },
+            "presentment_money": {
+              "amount": "14.70",
+              "currency_code": "EUR"
+            }
+          },
+          "rate": 0.21,
+          "title": "NL btw"
+        }
+      ],
+      "duties": [],
+      "discount_allocations": []
+    },
+    {
+      "id": 16774106972502,
+      "admin_graphql_api_id": "gid://shopify/LineItem/16774106972502",
+      "attributed_staffs": [],
+      "current_quantity": 1,
+      "fulfillable_quantity": 1,
+      "fulfillment_service": "palet",
+      "fulfillment_status": null,
+      "gift_card": false,
+      "grams": 11000,
+      "name": "Square meter of ceramic tiles",
+      "price": "275.00",
+      "price_set": {
+        "shop_money": {
+          "amount": "275.00",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "275.00",
+          "currency_code": "EUR"
+        }
+      },
+      "product_exists": true,
+      "product_id": 8709490311510,
+      "properties": [
+        {
+          "name": "Design",
+          "value": "marble light"
+        },
+        {
+          "name": "Colors",
+          "value": "202 + 350"
+        },
+        {
+          "name": "Producturl",
+          "value": "https://palet.shop/id/397"
+        },
+        {
+          "name": "Image",
+          "value": "https://palet.shop/id/398"
+        }
+      ],
+      "quantity": 1,
+      "requires_shipping": true,
+      "sales_line_item_group_id": null,
+      "sku": "300",
+      "taxable": true,
+      "title": "Square meter of ceramic tiles",
+      "total_discount": "0.00",
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "EUR"
+        }
+      },
+      "variant_id": 47589380850006,
+      "variant_inventory_management": null,
+      "variant_title": null,
+      "vendor": "Palet",
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "57.75",
+          "price_set": {
+            "shop_money": {
+              "amount": "57.75",
+              "currency_code": "EUR"
+            },
+            "presentment_money": {
+              "amount": "57.75",
+              "currency_code": "EUR"
+            }
+          },
+          "rate": 0.21,
+          "title": "NL btw"
+        }
+      ],
+      "duties": [],
+      "discount_allocations": []
+    }
+  ],
+  "payment_terms": null,
+  "refunds": [],
+  "shipping_address": {
+    "first_name": "gilles",
+    "address1": "Poeldonkweg 5",
+    "phone": "+31646567549",
+    "city": "'S-HERTOGENBOSCH",
+    "zip": "5216 JX",
+    "province": null,
+    "country": "Netherlands",
+    "last_name": "Brock",
+    "address2": null,
+    "company": "Palet BV",
+    "latitude": 51.6841321,
+    "longitude": 5.3412331,
+    "name": "gilles Brock",
+    "country_code": "NL",
+    "province_code": null
+  },
+  "shipping_lines": [
+    {
+      "id": 5575213908310,
+      "carrier_identifier": null,
+      "code": "FEDEX_PRIORITY",
+      "current_discounted_price_set": {
+        "shop_money": {
+          "amount": "155.90",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "155.90",
+          "currency_code": "EUR"
+        }
+      },
+      "discounted_price": "155.90",
+      "discounted_price_set": {
+        "shop_money": {
+          "amount": "155.90",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "155.90",
+          "currency_code": "EUR"
+        }
+      },
+      "is_removed": false,
+      "phone": null,
+      "price": "155.90",
+      "price_set": {
+        "shop_money": {
+          "amount": "155.90",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "155.90",
+          "currency_code": "EUR"
+        }
+      },
+      "requested_fulfillment_service_id": null,
+      "source": "fedex",
+      "title": "FedEx Priority",
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "32.74",
+          "price_set": {
+            "shop_money": {
+              "amount": "32.74",
+              "currency_code": "EUR"
+            },
+            "presentment_money": {
+              "amount": "32.74",
+              "currency_code": "EUR"
+            }
+          },
+          "rate": 0.21,
+          "title": "NL btw"
+        }
+      ],
+      "discount_allocations": []
+    }
+  ],
+  "returns": []
+}

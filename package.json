@@ -1,0 +1,16 @@
+{
+  "name": "shopify-airtable-sync",
+  "version": "1.0.0",
+  "main": "webhook-server.js",
+  "scripts": {
+    "start": "NODE_ENV=production node webhook-server.js",
+    "dev": "NODE_ENV=development node webhook-server.js",
+    "test-cli": "node send-to-airtable.js"
+  },
+  "dependencies": {
+    "axios": "^1.9.0",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2"
+  }
+}
