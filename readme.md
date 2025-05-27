@@ -1,3 +1,12 @@
+# to deploy
+git add .  
+git commit -m "Describe your change"
+
+git push heroku main:master
+
+heroku logs --tail --app palet-shopify
+
+
 # Shopify → Airtable Sync
 
 This project provides a robust, modular Node.js application to:

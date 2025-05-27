@@ -30,7 +30,7 @@ async function processOrder(order) {
 
 // Build order fields
   const orderFields = {
-    'Name Project': `${order.order_number} ${order.customer.first_name} ${order.customer.last_name}`,
+    'Name Project': `#${order.order_number} ${order.customer.first_name} ${order.customer.last_name}`,
     'stage': orderType === 100 ? 'webshop curated samples' : orderType === 200 ? 'webshop samples' : 'plan to print',
     'month': overview ? [overview.id] : [],
     'client': clientLink ? [clientLink.id] : [],
