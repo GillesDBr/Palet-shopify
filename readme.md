@@ -2,10 +2,16 @@
 git add .  
 git commit -m "Describe your change"
 
-git push heroku main:master
+heroku will build based on github repisitory
 
+to log heroku
 heroku logs --tail --app palet-shopify
 
+to check if life
+curl https://palet-shopify-9c83296acb03.herokuapp.com/health
+
+to test with local test data
+node send-to-airtable.js
 
 # Shopify → Airtable Sync
 
@@ -14,6 +20,20 @@ This project provides a robust, modular Node.js application to:
 1. **Receive** webhooks from Shopify (order events).
 2. **Process** order data (parse, format, determine types).
 3. **Sync** data into an Airtable base—creating and linking records across multiple tables.
+
+## 🔄 Recent Updates
+
+### Field Name Centralization
+- All Airtable field names are now centralized in `config/tables.js`
+- Organized by table for better maintainability
+- Reduces typos and makes field name changes easier
+- Better IDE support with autocomplete
+
+### Improved Country Handling
+- Automatic creation of missing country records
+- Prevents Airtable API errors for new country codes
+- Stores both country code and full country name
+- Maintains data consistency across tables
 
 ---
 
@@ -94,7 +114,7 @@ npm run test-cli
    ```
    https://<ngrok-id>.ngrok.io/webhook
    ```
-4. Trigger a real “Order paid” event in your dev store—watch console logs and Airtable updates.
+4. Trigger a real "Order paid" event in your dev store—watch console logs and Airtable updates.
 
 ---
 

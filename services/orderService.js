@@ -1,7 +1,7 @@
 // services/orderService.js
 const { formatDate } = require('../helpers/dateHelper');
 const { findRecordByField, createRecord } = require('../helpers/airtableHelper');
-const tables = require('../config/tables');
+const { FIELDS, OVERVIEW, ORDERS } = require('../config/tables');
 const clientService = require('./clientService');
 const lineItemService = require('./lineItemService');
 
@@ -19,8 +19,8 @@ async function processOrder(order) {
   // Lookup monthly overview record
   const periodKey = formatDate(order.updated_at);
   const overview = await findRecordByField(
-    tables.OVERVIEW_TABLE,
-    tables.OVERVIEW_FIELD_PERIOD,
+    OVERVIEW,
+    FIELDS.OVERVIEW.PERIOD,
     periodKey
   );
 
@@ -30,18 +30,18 @@ async function processOrder(order) {
 
 // Build order fields
   const orderFields = {
-    'Name Project': `#${order.order_number} ${order.customer.first_name} ${order.customer.last_name}`,
-    'stage': orderType === 100 ? 'webshop curated samples' : orderType === 200 ? 'webshop samples' : 'plan to print',
-    'month': overview ? [overview.id] : [],
-    'client': clientLink ? [clientLink.id] : [],
-    'discount': (parseFloat(order.total_discounts) / parseFloat(order.total_line_items_price)),
-    'invoice send': true,
-    'paid': true,
-    'shipping comments': order.shipping_lines[0].title,
-    'shipping price': parseFloat(order.current_shipping_price_set.shop_money.amount),
-    'incoterms': 'DAP'
+    [FIELDS.ORDERS.NAME]: `#${order.order_number} ${order.customer.first_name} ${order.customer.last_name}`,
+    [FIELDS.ORDERS.STAGE]: orderType === 100 ? 'webshop curated samples' : orderType === 200 ? 'webshop samples' : 'plan to print',
+    [FIELDS.ORDERS.MONTH]: overview ? [overview.id] : [],
+    [FIELDS.ORDERS.CLIENT]: clientLink ? [clientLink.id] : [],
+    [FIELDS.ORDERS.DISCOUNT]: (parseFloat(order.total_discounts) / parseFloat(order.total_line_items_price)),
+    [FIELDS.ORDERS.INVOICE_SENT]: true,
+    [FIELDS.ORDERS.PAID]: true,
+    [FIELDS.ORDERS.SHIPPING_COMMENTS]: order.shipping_lines[0].title,
+    [FIELDS.ORDERS.SHIPPING_PRICE]: parseFloat(order.current_shipping_price_set.shop_money.amount),
+    [FIELDS.ORDERS.INCOTERMS]: 'DAP'
   };
-  const orderRec = await createRecord(tables.ORDERS_TABLE, orderFields);
+  const orderRec = await createRecord(ORDERS, orderFields);
 
   // Process line items
   for (let item of order.line_items) {

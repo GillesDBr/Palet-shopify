@@ -1,6 +1,6 @@
 // services/lineItemService.js
 const { createRecord, findRecordByField } = require('../helpers/airtableHelper');
-const tables = require('../config/tables');
+const { FIELDS, DESIGNS, GLAZES, SAMPLE_JOBS, PRINT_JOBS, CURATED_SAMPLES } = require('../config/tables');
 
 async function processLineItem(item, orderId) {
   const sku = item.sku;
@@ -17,39 +17,39 @@ async function processLineItem(item, orderId) {
   if (sku === '200') {
     // sample-jobs
     for (let i = 0; i < quantity; i++) {
-      const designRec = await findRecordByField(tables.DESIGN_TABLE, 'Name', design) || {};
-      const domRec = await findRecordByField(tables.GLAZES_TABLE, 'ID', dom) || {};
-      const secRec = await findRecordByField(tables.GLAZES_TABLE, 'ID', sec) || {};
+      const designRec = await findRecordByField(DESIGNS, FIELDS.DESIGNS.NAME, design) || {};
+      const domRec = await findRecordByField(GLAZES, FIELDS.GLAZES.ID, dom) || {};
+      const secRec = await findRecordByField(GLAZES, FIELDS.GLAZES.ID, sec) || {};
       const fields = {
-        'Status': 'Todo',
-        'design': designRec.id ? [designRec.id] : [],
-        'glaze dominant': domRec.id ? [domRec.id] : [],
-        'glaze secondary': secRec.id ? [secRec.id] : [],
-        'projects': [orderId]
+        [FIELDS.SAMPLE_JOBS.STATUS]: 'Todo',
+        [FIELDS.SAMPLE_JOBS.DESIGN]: designRec.id ? [designRec.id] : [],
+        [FIELDS.SAMPLE_JOBS.GLAZE_DOMINANT]: domRec.id ? [domRec.id] : [],
+        [FIELDS.SAMPLE_JOBS.GLAZE_SECONDARY]: secRec.id ? [secRec.id] : [],
+        [FIELDS.SAMPLE_JOBS.PROJECTS]: [orderId]
       };
-      await createRecord(tables.SAMPLE_JOBS_TABLE, fields);
+      await createRecord(SAMPLE_JOBS, fields);
     }
   } else if (sku === '300') {
     // print-jobs
-    const designRec = await findRecordByField(tables.DESIGN_TABLE, 'Name', design) || {};
-    const domRec = await findRecordByField(tables.GLAZES_TABLE, 'ID', dom) || {};
-    const secRec = await findRecordByField(tables.GLAZES_TABLE, 'ID', sec) || {};
+    const designRec = await findRecordByField(DESIGNS, FIELDS.DESIGNS.NAME, design) || {};
+    const domRec = await findRecordByField(GLAZES, FIELDS.GLAZES.ID, dom) || {};
+    const secRec = await findRecordByField(GLAZES, FIELDS.GLAZES.ID, sec) || {};
     const fields = {
-      'status': 'to-do',
-      'design': designRec.id ? [designRec.id] : [],
-      'glaze dominant': domRec.id ? [domRec.id] : [],
-      'glaze secondary': secRec.id ? [secRec.id] : [],
-      'sqm': quantity,
-      'projects': [orderId]
+      [FIELDS.PRINT_JOBS.STATUS]: 'to-do',
+      [FIELDS.PRINT_JOBS.DESIGN]: designRec.id ? [designRec.id] : [],
+      [FIELDS.PRINT_JOBS.GLAZE_DOMINANT]: domRec.id ? [domRec.id] : [],
+      [FIELDS.PRINT_JOBS.GLAZE_SECONDARY]: secRec.id ? [secRec.id] : [],
+      [FIELDS.PRINT_JOBS.SQM]: quantity,
+      [FIELDS.PRINT_JOBS.PROJECTS]: [orderId]
     };
-    await createRecord(tables.PRINT_JOBS_TABLE, fields);
+    await createRecord(PRINT_JOBS, fields);
   } else if (sku === '100'){
     // curated sample box
     const fields = {
-      'quantity': quantity,
-      'projects': [orderId]
+      [FIELDS.CURATED_SAMPLES.QUANTITY]: quantity,
+      [FIELDS.CURATED_SAMPLES.PROJECTS]: [orderId]
     };
-    await createRecord(tables.CURATED_SAMPLES_TABLE, fields);
+    await createRecord(CURATED_SAMPLES, fields);
   }
 }
 
