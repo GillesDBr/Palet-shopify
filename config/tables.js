@@ -25,9 +25,10 @@ const FIELDS = {
     MONTH: 'month',              // Link to monthly overview
     CLIENT: 'client',            // Link to client record
     DISCOUNT: 'discount',        // Applied discount percentage
+    DISCOUNT_CODE: 'discount code', // Discount code used (if any)
     INVOICE_SENT: 'invoice send', // Invoice status
     PAID: 'paid',                // Payment status
-    SHIPPING_COMMENTS: 'shipping comments', // Delivery instructions
+    SHIPPING_METHOD: 'shipping method',  // Shipping carrier and service
     SHIPPING_PRICE: 'shipping price',      // Shipping cost
     INCOTERMS: 'incoterms'       // International commercial terms
   },
