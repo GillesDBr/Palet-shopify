@@ -17,6 +17,22 @@ async function processOrder(order) {
     }
   });
 
+  // Generate the project name
+  const projectName = `#${order.order_number} ${order.customer.first_name} ${order.customer.last_name}`;
+
+  // Check if project already exists
+  const existingProject = await findRecordByField(
+    ORDERS,
+    FIELDS.ORDERS.NAME,
+    projectName
+  );
+
+  // If project exists, return it without creating a new one
+  if (existingProject) {
+    console.log(`Project ${projectName} already exists. Skipping creation.`);
+    return existingProject;
+  }
+
   // Lookup monthly overview record
   const periodKey = formatDate(order.updated_at);
   const overview = await findRecordByField(
@@ -36,7 +52,7 @@ async function processOrder(order) {
 
   // Build initial order fields (without shipping method and discount code)
   const orderFields = {
-    [FIELDS.ORDERS.NAME]: `#${order.order_number} ${order.customer.first_name} ${order.customer.last_name}`,
+    [FIELDS.ORDERS.NAME]: projectName,
     [FIELDS.ORDERS.STAGE]: orderType === 100 ? 'webshop curated samples' : orderType === 200 ? 'webshop samples' : 'plan to print',
     [FIELDS.ORDERS.MONTH]: overview ? [overview.id] : [],
     [FIELDS.ORDERS.CLIENT]: clientLink ? [clientLink.id] : [],

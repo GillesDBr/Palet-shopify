@@ -60,7 +60,8 @@ const FIELDS = {
     DESIGN: 'design',           // Link to design record
     GLAZE_DOMINANT: 'glaze dominant',     // Primary glaze color
     GLAZE_SECONDARY: 'glaze secondary',   // Secondary glaze color
-    PROJECTS: 'projects'        // Link to main order
+    PROJECTS: 'projects',        // Link to main order
+    PAID: 'paid'                // Payment status
   },
 
   // Print Jobs table fields - Production orders

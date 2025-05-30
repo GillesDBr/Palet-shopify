@@ -25,7 +25,8 @@ async function processLineItem(item, orderId) {
         [FIELDS.SAMPLE_JOBS.DESIGN]: designRec.id ? [designRec.id] : [],
         [FIELDS.SAMPLE_JOBS.GLAZE_DOMINANT]: domRec.id ? [domRec.id] : [],
         [FIELDS.SAMPLE_JOBS.GLAZE_SECONDARY]: secRec.id ? [secRec.id] : [],
-        [FIELDS.SAMPLE_JOBS.PROJECTS]: [orderId]
+        [FIELDS.SAMPLE_JOBS.PROJECTS]: [orderId],
+        [FIELDS.SAMPLE_JOBS.PAID]: 'paid'
       };
       await createRecord(SAMPLE_JOBS, fields);
     }
