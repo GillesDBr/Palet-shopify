@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const crypto = require('crypto');
 const { processOrder } = require('./services/orderService');
+const { formatOrderLog, writeToLog } = require('./helpers/logHelper');
 
 const app = express();
 app.use(bodyParser.raw({ type: 'application/json' }));
@@ -21,8 +22,14 @@ function verifyHmac(req, res, next) {
 app.post('/webhook', verifyHmac, (req, res) => {
   const order = JSON.parse(req.body.toString());
   processOrder(order)
-    .then(() => res.sendStatus(200))
+    .then((rec) => {
+      // Check if the response includes isDuplicate flag
+      const status = rec.isDuplicate ? 'duplicate' : 'success';
+      writeToLog(formatOrderLog(order, rec.id, status));
+      res.sendStatus(200);
+    })
     .catch(err => {
+      writeToLog(formatOrderLog(order, null, 'error') + `Error: ${err.message}\n\n`);
       console.error(err);
       res.sendStatus(500);
     });
@@ -31,4 +38,7 @@ app.post('/webhook', verifyHmac, (req, res) => {
 app.get('/health', (req, res) => res.send('👍 OK'));
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
+  writeToLog(`[${new Date().toISOString()}] Webhook server started on port ${PORT}\n\n`);
+});

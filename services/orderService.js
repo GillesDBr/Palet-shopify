@@ -27,10 +27,14 @@ async function processOrder(order) {
     projectName
   );
 
-  // If project exists, return it without creating a new one
+  // If project exists, return it with isDuplicate flag
   if (existingProject) {
-    console.log(`Project ${projectName} already exists. Skipping creation.`);
-    return existingProject;
+    // Return the existing project with the isDuplicate flag and proper structure
+    return {
+      id: existingProject.id,
+      fields: existingProject.fields,
+      isDuplicate: true
+    };
   }
 
   // Lookup monthly overview record
@@ -95,7 +99,12 @@ async function processOrder(order) {
     await lineItemService.processLineItem(item, orderRec.id);
   }
 
-  return orderRec;
+  // Return the record with proper structure and isDuplicate flag
+  return {
+    id: orderRec.id,
+    fields: { ...orderFields, ...updateFields },
+    isDuplicate: false
+  };
 }
 
 module.exports = { processOrder };
