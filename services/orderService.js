@@ -20,22 +20,28 @@ async function processOrder(order) {
   // Generate the project name
   const projectName = `#${order.order_number} ${order.customer.first_name} ${order.customer.last_name}`;
 
-  // Check if project already exists
-  const existingProject = await findRecordByField(
-    ORDERS,
-    FIELDS.ORDERS.NAME,
-    projectName
-  );
-
-  // If project exists, return it with isDuplicate flag
-  if (existingProject) {
-    // Return the existing project with the isDuplicate flag and proper structure
-    return {
-      id: existingProject.id,
-      fields: existingProject.fields,
-      isDuplicate: true
-    };
+  // Double-check mechanism for duplicate detection
+  async function checkForDuplicate() {
+    const existingProject = await findRecordByField(
+      ORDERS,
+      FIELDS.ORDERS.NAME,
+      projectName
+    );
+    
+    if (existingProject) {
+      console.log(`Found duplicate project: ${projectName}`);
+      return {
+        id: existingProject.id,
+        fields: existingProject.fields,
+        isDuplicate: true
+      };
+    }
+    return null;
   }
+
+  // First check for duplicate
+  const duplicate = await checkForDuplicate();
+  if (duplicate) return duplicate;
 
   // Lookup monthly overview record
   const periodKey = formatDate(order.updated_at);
@@ -54,7 +60,7 @@ async function processOrder(order) {
   // Get discount code if available
   const discountCode = order.discount_applications?.[0]?.title || null;
 
-  // Build initial order fields (without shipping method and discount code)
+  // Build initial order fields
   const orderFields = {
     [FIELDS.ORDERS.NAME]: projectName,
     [FIELDS.ORDERS.STAGE]: orderType === 100 ? 'webshop curated samples' : orderType === 200 ? 'webshop samples' : 'plan to print',
@@ -67,15 +73,18 @@ async function processOrder(order) {
     [FIELDS.ORDERS.INCOTERMS]: 'DAP'
   };
 
+  // Second check for duplicate right before creation
+  const lastMinuteDuplicate = await checkForDuplicate();
+  if (lastMinuteDuplicate) return lastMinuteDuplicate;
+
   // Create the initial order record
   const orderRec = await createRecord(ORDERS, orderFields);
 
-  // Update the record with shipping method and discount code (this will create options if they don't exist)
+  // Update the record with shipping method and discount code
   const updateFields = {
     [FIELDS.ORDERS.SHIPPING_METHOD]: shippingMethod
   };
 
-  // Only add discount code if one was used
   if (discountCode) {
     updateFields[FIELDS.ORDERS.DISCOUNT_CODE] = discountCode;
   }
@@ -99,7 +108,6 @@ async function processOrder(order) {
     await lineItemService.processLineItem(item, orderRec.id);
   }
 
-  // Return the record with proper structure and isDuplicate flag
   return {
     id: orderRec.id,
     fields: { ...orderFields, ...updateFields },

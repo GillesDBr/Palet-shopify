@@ -22,15 +22,23 @@ function formatOrderLog(order, recordId, status = 'success') {
   const statusSymbols = {
     'success': '✅ Order processing completed',
     'duplicate': '⚠️ Duplicate order detected',
-    'error': '❌ Order processing failed'
+    'error': '❌ Order processing failed',
+    'webhook_duplicate': '⏭️ Duplicate webhook skipped',
+    'webhook_received': '📥 Webhook received',
+    'webhook_processing': '⚙️ Processing webhook'
   };
   
-  logLines.push(`[${timestamp}] ${statusSymbols[status]}:`);
+  logLines.push(`[${timestamp}] ${statusSymbols[status] || status}:`);
   logLines.push(`Project: ${projectName}`);
+  logLines.push(`Order #: ${order.order_number}`);
+  logLines.push(`Customer: ${order.customer.email}`);
   
   if (status === 'duplicate') {
     logLines.push(`Found existing record: ${recordId}`);
     logLines.push('Skipping creation to avoid duplicate\n');
+  } else if (status === 'webhook_duplicate') {
+    logLines.push('Concurrent webhook received while order is being processed');
+    logLines.push('Returning 200 to prevent retries\n');
   } else if (status === 'success') {
     logLines.push(`Record ID: ${recordId}\n`);
     
@@ -58,23 +66,42 @@ function formatOrderLog(order, recordId, status = 'success') {
   return logLines.join('\n') + '\n\n';
 }
 
-function writeToLog(message) {
-  const logDir = path.join(process.cwd(), 'logs');
-  const logFile = path.join(logDir, 'order-webhook.log');
+function formatWebhookLog(message, order = null) {
+  const timestamp = new Date().toISOString();
+  let logLines = [];
   
-  // Create logs directory if it doesn't exist
-  if (!fs.existsSync(logDir)) {
-    fs.mkdirSync(logDir);
+  if (order) {
+    const orderKey = `${order.order_number}-${order.customer.email}`;
+    logLines.push(`[${timestamp}] ${message}`);
+    logLines.push(`Order Key: ${orderKey}`);
+  } else {
+    logLines.push(`[${timestamp}] ${message}`);
   }
   
-  // Append to log file
-  fs.appendFileSync(logFile, message);
-  
-  // Also log to console
+  return logLines.join('\n') + '\n\n';
+}
+
+function writeToLog(message) {
+  // Always log to console (this is what Heroku will capture)
   console.log(message);
+
+  // Only write to file in development environment
+  if (process.env.NODE_ENV === 'development') {
+    const logDir = path.join(process.cwd(), 'logs');
+    const logFile = path.join(logDir, 'order-webhook.log');
+    
+    // Create logs directory if it doesn't exist
+    if (!fs.existsSync(logDir)) {
+      fs.mkdirSync(logDir);
+    }
+    
+    // Append to log file
+    fs.appendFileSync(logFile, message);
+  }
 }
 
 module.exports = {
   formatOrderLog,
+  formatWebhookLog,
   writeToLog
 }; 
