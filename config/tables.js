@@ -61,7 +61,8 @@ const FIELDS = {
     GLAZE_DOMINANT: 'glaze dominant',     // Primary glaze color
     GLAZE_SECONDARY: 'glaze secondary',   // Secondary glaze color
     PROJECTS: 'projects',        // Link to main order
-    PAID: 'paid'                // Payment status
+    PAID: 'paid',                // Payment status
+    PRODUCT_IMAGE: 'product image'  // URL to product image
   },
 
   // Print Jobs table fields - Production orders
@@ -71,7 +72,8 @@ const FIELDS = {
     GLAZE_DOMINANT: 'glaze dominant',     // Primary glaze color
     GLAZE_SECONDARY: 'glaze secondary',   // Secondary glaze color
     SQM: 'sqm',                // Square meters ordered
-    PROJECTS: 'projects'        // Link to main order
+    PROJECTS: 'projects',        // Link to main order
+    PRODUCT_IMAGE: 'product image'  // URL to product image
   },
 
   // Curated Samples table fields - Pre-selected sample boxes

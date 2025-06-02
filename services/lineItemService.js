@@ -7,10 +7,11 @@ async function processLineItem(item, orderId) {
   const quantity = item.fulfillable_quantity;
 
   // extract properties
-  let design, colors;
+  let design, colors, imageUrl;
   item.properties.forEach(prop => {
     if (prop.name === 'Design') design = prop.value;
     if (prop.name === 'Colors') colors = prop.value; // e.g. "379+343"
+    if (prop.name === 'Image') imageUrl = prop.value;
   });
   const [dom, sec] = colors ? colors.replace(/\s+/g, '').split('+') : [];
 
@@ -26,7 +27,8 @@ async function processLineItem(item, orderId) {
         [FIELDS.SAMPLE_JOBS.GLAZE_DOMINANT]: domRec.id ? [domRec.id] : [],
         [FIELDS.SAMPLE_JOBS.GLAZE_SECONDARY]: secRec.id ? [secRec.id] : [],
         [FIELDS.SAMPLE_JOBS.PROJECTS]: [orderId],
-        [FIELDS.SAMPLE_JOBS.PAID]: 'paid'
+        [FIELDS.SAMPLE_JOBS.PAID]: 'paid',
+        [FIELDS.SAMPLE_JOBS.PRODUCT_IMAGE]: imageUrl
       };
       await createRecord(SAMPLE_JOBS, fields);
     }
@@ -41,7 +43,8 @@ async function processLineItem(item, orderId) {
       [FIELDS.PRINT_JOBS.GLAZE_DOMINANT]: domRec.id ? [domRec.id] : [],
       [FIELDS.PRINT_JOBS.GLAZE_SECONDARY]: secRec.id ? [secRec.id] : [],
       [FIELDS.PRINT_JOBS.SQM]: quantity,
-      [FIELDS.PRINT_JOBS.PROJECTS]: [orderId]
+      [FIELDS.PRINT_JOBS.PROJECTS]: [orderId],
+      [FIELDS.PRINT_JOBS.PRODUCT_IMAGE]: imageUrl
     };
     await createRecord(PRINT_JOBS, fields);
   } else if (sku === '100'){
